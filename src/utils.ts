@@ -4,7 +4,7 @@ import { TOTP, NobleCryptoPlugin, ScureBase32Plugin, createGuardrails } from 'ot
 import fs from 'fs';
 import path from 'path';
 
-type UserType = 'user';
+type UserType = 'user' ;
 
 const envPath = path.resolve(__dirname, '../playwright.env.json');
 const env = JSON.parse(fs.readFileSync(envPath, 'utf-8'));
@@ -27,10 +27,9 @@ export async function login(page: Page, userType: UserType = 'user') {
   await page.locator('input[type="submit"]').click();
   await expect(page).toHaveURL(/\/sessions\/two-factor\/app/);
   const otp = await getOtp(env.user.secret);
-
   const otpField = page.locator('#app_totp');
   await otpField.click();
   await otpField.pressSequentially(otp, { delay: 50 });
-
   await expect(page).toHaveURL('https://github.com/');
+  await expect(page.getByRole('link', { name: 'Dashboard' })).toBeVisible();
 }
