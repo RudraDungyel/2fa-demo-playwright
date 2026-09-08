@@ -1,0 +1,26 @@
+{
+  "name": "2fa-demo-e2e",
+  "version": "1.0.0",
+  "description": "Playwright E2E suite with TOTP-based 2FA login",
+  "scripts": {
+    "test": "playwright test",
+    "e2e:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.5.0",
+    "otpauth": "^9.5.2",
+    "otplib": "^13.5.0",
+    "typescript": "^7.0.2"
+  },
+  "private": true
+}
