@@ -47,13 +47,8 @@ different config file (e.g. `PLAYWRIGHT_ENV_FILE=playwright.env.staging.json`).
 
 ```
 playwright.config.ts        Config; baseURL comes from playwright.env.json
-src/env.ts                  Typed loader for playwright.env.json
-src/totp.ts                 TOTP code generation from a base32 secret
 src/utils.ts                Login flows: login(), loginAs(), loginWithOtp()
-src/fixtures.ts             `test` extended with `customer` and `loginPage`
 src/pages/login.page.ts     Function-based login POM (app-specific locators)
-tests/totp.spec.ts          Verifies the TOTP helper — runs today
-tests/login.spec.ts         Login journey template — currently skipped
 ```
 
 ## Writing a test
